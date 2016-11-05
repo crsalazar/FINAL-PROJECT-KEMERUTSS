@@ -32,7 +32,7 @@ void details::title(){
 	cout<<"[2] Hyperdunk 2016 FK - Php 9895 "<<setw(45)<<"[7] D Lillard 2.0 - Php 6995 "<<endl;
 	cout<<"[3] Nike Zoom KD 9 - Php 7645 "<<setw(60)<<"[8] Crazylight Boost Low 2016 - Php 7995 "<<endl;
 	cout<<"[4] Kyrie 2 - Php 6295 "<<setw(52)<<"[9] Stan Smith - Php 4895 "<<endl;
-	cout<<"[5] Lebron Soldier 10 - Php 6745 "<<setw(43)<<"[10] Ultra boost - Php 8295 "<<endl;
+	cout<<"[5] Lebron Soldier 10 - Php 6745 "<<setw(44)<<"[10] Ultra boost - Php 8295 "<<endl;
 }
 int main()
 {
@@ -48,14 +48,13 @@ int main()
 			{
 				int price=8095;
 				int quantity(0);
-				cout<<"You have choose: Kobe 11"<<endl;
+				cout<<"You have chosen: Kobe 11"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout;
 				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
@@ -79,15 +78,14 @@ int main()
 			{
 				int price=9895;
 				int quantity(0);
-				cout<<"You have choose: Hyperdunk 2016 FK"<<endl;
+				cout<<"You have chosen: Hyperdunk 2016 FK"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout
-				;;cout<<"Total: "<<total;
+				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
 			
@@ -110,14 +108,13 @@ int main()
 			{
 				int price=7645;
 				int quantity(0);
-				cout<<"You have choose: Nike Zoom KD 9"<<endl;
+				cout<<"You have chosen: Nike Zoom KD 9"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout;
 				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
@@ -141,7 +138,7 @@ int main()
 			{
 				int price=6295;
 				int quantity(0);
-				cout<<"You have choose: Kyrie 2"<<endl;
+				cout<<"You have chosen: Kyrie 2"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
@@ -172,14 +169,13 @@ int main()
 			{
 				int price=6745;
 				int quantity(0);
-				cout<<"You have choose: Lebron Soldier 10"<<endl;
+				cout<<"You have chosen: Lebron Soldier 10"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout
 				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
@@ -202,14 +198,13 @@ int main()
 			{
 				int price=7995;
 				int quantity(0);
-				cout<<"You have choose: D Rose 7"<<endl;
+				cout<<"You have chosen: D Rose 7"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout
 				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
@@ -233,14 +228,13 @@ int main()
 			{
 				int price=6995;
 				int quantity(0);
-				cout<<"You have choose: D Lillard 2.0"<<endl;
+				cout<<"You have chosen: D Lillard 2.0"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout
 				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
@@ -264,14 +258,13 @@ int main()
 			{
 				int price=7995;
 				int quantity(0);
-				cout<<"You have choose: Crazylight Boost Low 2016"<<endl;
+				cout<<"You have chosen: Crazylight Boost Low 2016"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout
 				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
@@ -295,14 +288,13 @@ int main()
 			{
 				int price=4895;
 				int quantity(0);
-				cout<<"You have choose: Stan Smith"<<endl;
+				cout<<"You have chosen: Stan Smith"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout
 				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
@@ -326,14 +318,13 @@ int main()
 			{
 				int price=8295;
 				int quantity(0);
-				cout<<"You have choose: Ultra boost"<<endl;
+				cout<<"You have chosen: Ultra boost"<<endl;
 				cout<<"Quantity: ";
 				cin>>quantity;
 				total+=(price*quantity);
 				menu1.choose(price,quantity);
 				//file handling sa receipt
 				fstream fout("C:\\Users\\crsalazar\\Desktop\\cpe\\total_receipt.txt");
-				fout
 				cout<<"Total: "<<total;
 				cash:cout<<"\nCash: ";
 				cin>>cash;
