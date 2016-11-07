@@ -1,0 +1,572 @@
+#include<iostream>
+#include<fstream>
+#include<iomanip>
+#include<conio.h>
+#include<windows.h>
+#include<cstring>
+using namespace std;
+double total(0);	//global declaration for total
+double balance;		//goubal declaration for balance
+double cash;		//global declaration for cash		
+int main();			//flow of the program
+int menu();			
+
+
+void option();		//this is decide the user to enter again data or exit
+double tax(0);		//global declaration for tax
+class details{		//oop for the title and user
+	public:
+	void title();
+	void user();
+
+	
+};
+struct cashier{		//nested stucture
+	int password[6];	//input password
+	struct{	
+		int order;		//order the user
+		int order_again;	//this will tell if the user want to order again
+	}shoes;
+};
+void details::title(){			//oop display title
+	cout<<" 					********** FIT TO SHOES ********** "<<endl;
+	cout<<"Store that apt to fit your shoes :)"<<endl<<endl;
+	cout<<"Choose: "<<endl;
+	cout<<"NIKE SHOES:"<<setw(50)<<"ADIDAS SHOES:"<<endl;
+	cout<<"[1] Kobe 11 - Php 8095 "<<setw(50)<<"[6] D Rose 7 - Php 7995 "<<endl;
+	cout<<"[2] Hyperdunk 2016 FK - Php 9895 "<<setw(45)<<"[7] D Lillard 2.0 - Php 6995 "<<endl;
+	cout<<"[3] Nike Zoom KD 9 - Php 7645 "<<setw(60)<<"[8] Crazylight Boost Low 2016 - Php 7995 "<<endl;
+	cout<<"[4] Kyrie 2 - Php 6295 "<<setw(52)<<"[9] Stan Smith - Php 4895 "<<endl;
+	cout<<"[5] Lebron Soldier 10 - Php 6745 "<<setw(43)<<"[10] Ultra boost - Php 8295 "<<endl;
+}
+
+
+void details::user()		//oop login account
+{
+	int a,i;
+	cashier user;
+	cout<<" 					********** FIT TO SHOES ********** "<<endl;
+	cout<<"Store that apt to fit your shoes :)"<<endl<<endl;
+	cout<<"Welcome"<<endl;
+	a:int c=0;
+	char pass[6];
+ 	char r[6] = {'p','a','s','s','w','d'};
+ 	int p;
+ 	cout<<"Password: ";
+ 	for (int i=0;i<6;i++)
+ 	{
+ 		 pass[i] = getch();
+  		cout<<"*";
+ 	}
+ 	for (int j=0;j<6;j++)
+ 	{
+    	if (pass[j] == r[j])
+    	c = c+1;
+ 	 }
+
+	if (c != 6)
+	{
+		cout<<"\nInvalid Password"<<endl;
+		goto a;
+	}else(c==6);{ 
+		cout<<"\nCorrect Password"<<endl;
+	}
+}
+
+int main() 		//flow of the program
+{
+	details menu1;
+	menu1.user();
+	menu();
+}
+
+int menu()	//main of the program
+{
+
+	system("cls");
+	details menu1;
+	menu1.title();
+ofstream fout;
+fout.open("C:\\Users\\Christine\\Documents\\cpefinals\\E21_Salazar_Christine_Mae.txt" ,ios_base::app);
+	cashier Shoes;
+	order:
+	cout<<"Order: ";
+	cin>>Shoes.shoes.order;
+	switch(Shoes.shoes.order)
+	{
+		case 1:
+			{
+				int i;
+				int price=8095;
+				int quantity(0);
+				int tax;
+		
+				cout<<"You have choose:Kobe 11"<<endl;
+			fout<<"You have choose:Kobe 11"<<endl;		
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);	//the quantity would multiply the price to get the total
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again"<<endl;
+				cout<<"Press [2]    Proceed to Payment"<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				
+				tax=total+11.52;	//overall total with added tax
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash:
+				cout<<"\nCash: Php";
+				cin>>cash;
+			fout << "Cash: " << cash << endl;
+				if(cash<tax)	//this will compare the cash to tax which is the overall total
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash;
+				}
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;		
+					cout<<"Balance: Php "<<balance<<endl;		
+					fout << "Balance: Php " << balance << endl;
+					total=0;	//this will restart the all the total amount
+					tax=0;		//same with the total 
+				}	
+				option();
+			break;
+			}
+		case 2:
+			{
+				int i;
+				int price=9895;
+				int quantity(0);
+		
+		
+				cout<<"You have choose: Hyperdunk 2016 FK"<<endl;
+			fout<<"You have choose: Hyperdunk 2016 FK"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax<<endl;
+				
+				cash2:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash2;
+				}
+				
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}	
+				option();	
+				break;
+			}
+		case 3:{
+			
+				int i;
+				int price=7645;
+				int quantity(0);
+		
+				cout<<"You have choose: Nike Zoom KD 9"<<endl;
+			fout<<"You have choose: Nike Zoom KD 9"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash3:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+			
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash3;
+				}
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}	
+				option();	
+			break;
+		}
+		case 4:{
+			int i;
+				int price=6295;
+				int quantity(0);
+		
+				cout<<"You have choose: Kyrie 2"<<endl;
+			fout<<"You have choose: Kyrie 2"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash4:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash4;
+				}
+					
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}	
+				option();
+			break;
+		}
+		case 5:{
+			int i;
+				int price=6745;
+				int quantity(0);
+		
+				cout<<"You have choose: Lebron Soldier 10"<<endl;
+			fout<<"You have choose: Lebron Soldier 10"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash5:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+				
+					
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash5;
+				}
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}	
+				option();
+			break;
+		}
+		case 6:{
+				int i;
+				int price=7995;
+				int quantity(0);
+		
+				cout<<"You have choose: D Rose 7"<<endl;
+			fout<<"You have choose: D Rose 7"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash6:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+			
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash6;
+				}
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}	
+				option();
+			break;
+		}	
+		case 7:{
+			int i;
+				int price=6995;
+				int quantity(0);
+		
+				cout<<"You have choose: D Lillard 2.0"<<endl;
+			fout<<"You have choose: D Lillard 2.0"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash7:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+			
+					
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash7;
+				}
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}	
+				option();
+			break;
+		}
+		case 8:{
+			int i;
+				int price=7995;
+				int quantity(0);
+		
+				cout<<"You have choose: Crazylight Boost Low 2016"<<endl;
+			fout<<"You have choose: Crazylight Boost Low 2016"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash8:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+					
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash8;
+				}
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}
+				option();
+			break;
+		}
+		case 9:{
+			int i;
+				int price=4895;
+				int quantity(0);
+		
+				cout<<"You have choose: Stan Smith"<<endl;
+			fout<<"You have choose: Stan Smith"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash9:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+	
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash9;
+				}
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}	
+				option();
+			break;
+		}
+		case 10:{
+				int i;
+				int price=8295;
+				int quantity(0);
+		
+				cout<<"You have choose: Ultra boost"<<endl;
+			fout<<"You have choose: Ultra boost"<<endl;
+				cout<<"Quantity: ";
+				cin>>quantity;
+			fout << "Quantity:" << quantity << endl;
+				total+=(price*quantity);
+				cout<<"Do the customer want to buy again?"<<endl;
+				cout<<"Press [1]    Buy Again: "<<endl;
+				cout<<"Press [2]    Proceed to Payment: "<<endl;
+				cin>>Shoes.shoes.order_again;
+			fout << "Buy again: " << Shoes.shoes.order_again << endl;
+			
+				if(Shoes.shoes.order_again==1)
+				goto order;	
+				
+				tax=total+11.52;
+				cout<<"Customer's Total: Php "<<total<<endl;
+				cout<<"Value Added Tax : Php 11.52"<<endl;
+				cout<<"Customer's Overall Total: Php "<<tax;
+				cash0:
+				cout<<"\nCash: Php";
+				cin>>cash;
+				fout << "Cash: Php" << cash << endl;
+			
+					
+				if(cash<tax)
+				{
+					cout<<"Invalid Input of cash"<<endl;
+					goto cash0;
+				}
+				if((cash>tax)||(cash=tax))
+				{
+					balance=cash-tax;
+					cout<<"Balance: Php"<<balance<<endl;
+					fout << "Balance: Php" << balance << endl;
+					total=0;
+					tax=0;
+				}
+				option();
+			break;
+		}
+					fout.close();
+
+}
+}
+void option()
+{
+		int option;
+		cout<<"****************************** OPTION MENU ******************************"<<endl;
+		cout<<"Press [1]	Enter another Customer"<<endl;
+		cout<<"Press [2]	Log-out"<<endl;
+		cin>>option;
+		if(option==1)
+		{
+			menu();	
+		}else
+			exit(1);			
+}
